@@ -1,0 +1,22 @@
+
+<H1>Welcome!</H1>
+
+<div class="containter">
+  <div>Thanks for using our App.</div>
+    <div> You can manage your shopping list<a routerLink="/shop"> here.</a>
+
+</div>
+
+<div class="container">
+  Click here to get a customized welcome message
+  <button (click)="getWelcomeMessageWithParameter()" class="btn btn-success">Get Welcome Message</button>
+</div>
+
+<div class="container" *ngIf="welcomeMessageFromService">
+  <H2>Your Customized Welcome Message</H2>
+  {{welcomeMessageFromService}}
+</div>
+
+
+
+

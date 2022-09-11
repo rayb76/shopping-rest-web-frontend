@@ -1,0 +1,25 @@
+<H1>Shopping List</H1>
+
+  <div class="container">
+    <div class="alert alert-warning" *ngIf="itemForm.dirty && itemForm.invalid">Please Enter Value</div>
+    <div class="alert alert-warning" *ngIf="itemForm.dirty && targetDate.invalid">Please Enter a Target Date</div>
+    <div class="alert alert-warning" *ngIf="itemForm.dirty && items.invalid">Please Enter an Item</div>
+
+    <form (ngSubmit)="!itemForm.invalid && saveItem()" #itemForm="ngForm">
+     <fieldset class="form-group">
+	<label>Items</label>
+	<input type="text" #items="ngModel"
+  [(ngModel)]="item.listOfItems" class="form-control" name="items" required="required" minlength="4">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label>TargetDate</label>
+      <input type="date" #targetDate="ngModel"
+      [ngModel]="item.targetDate | date: 'yyyy-MM-dd'"
+      (ngModelChange)="item.targetDate = $event"
+      class="form-control" name="targetDate" required="required">
+    </fieldset>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    </form>
+   </div>

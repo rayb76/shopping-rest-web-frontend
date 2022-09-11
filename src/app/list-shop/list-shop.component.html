@@ -1,0 +1,30 @@
+<!-- <p>listshop works!</p> -->
+<H1>My Items</H1>
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="container">
+<table class="table">
+
+ <thead>
+    <tr>
+      <th>Items</th>
+      <th>Target Date</th>
+      <th>Purchased?</th>
+      <th>Update</th>
+      <th>Delete</th>
+   </tr>
+   </thead>
+   <tbody>
+    <tr *ngFor="let items of item">
+    <td>{{items.listOfItems}}</td>
+    <td>{{items.targetDate | date}}</td>
+    <td>{{items.done}}</td>
+    <td><button (click)="updateItem(items.id)" class="btn btn-success">Update</button></td>
+    <td><button (click)="deleteItem(items.id)" class="btn btn-warning">Delete</button></td>
+   </tr>
+        </tbody>
+       </table>
+      </div>
+
+      <div class="row">
+        <button (click)="addItem()" class="btn btn-success">Add</button>
+      </div>
